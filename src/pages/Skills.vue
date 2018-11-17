@@ -80,7 +80,7 @@ export default {
       this.skillname = ''
     },
     remove(index) {
-      this.skills = this.skills.filter(function(value, idx) {
+      this.list = this.list.filter(function(value, idx) {
         return idx !== index
       })
     },
