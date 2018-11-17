@@ -1,0 +1,93 @@
+/*
+========================================================= 
+JQUERY NUMERIC STEPPER PLUGIN | 
+https://github.com/xFlatlinex/Numeric-Stepper
+========================================================= 
+*/
+.stepper-wrap {
+    position: relative;
+    display:block;
+    font: 11px Arial, sans-serif;
+}
+
+.stepper-wrap input {
+    text-align: right;
+	padding-right:20px;
+	
+}
+
+.stepper-wrap .gui-input{
+    -webkit-border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+	-o-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;	
+}
+
+.stepper-btn-wrap {
+    position: absolute;
+    top: 0;
+    right: -34px;
+    width: 34px;
+    height: 100%;
+    overflow: hidden;
+	background: #F2F4FA;
+    border: 2px solid #BDC3C7;
+    border-width:2px 2px 2px 0;
+	-webkit-background-clip: padding-box;        
+    -moz-background-clip: padding;
+	background-clip: padding-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	-o-border-radius: 0 3px 3px 0;
+	border-radius: 0 3px 3px 0;	
+}
+
+.stepper-btn-wrap a {
+    display: block;
+    height: 50%;
+    overflow: hidden;
+    line-height: 100%;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	text-indent:-9999px;	
+	background:#F2F4FA;
+    cursor: default;
+    color: #666;
+}
+
+.stepper-btn-wrap a:hover { 
+	background:#F8FAFC;
+}
+
+.stepper-btn-up:before, 
+.stepper-btn-dwn:before{
+    content: '';
+	border: 4px dashed; 
+	pointer-events: none;
+	border-color: #B5C1C7 transparent;
+	border-color: #B5C1C7 rgba(255, 255, 255, 0);
+    position: absolute;
+	right:13px;
+	z-index:1;
+	height:0;  
+	top:32%;
+	width:0;
+}
+
+.stepper-btn-up:before { 
+	border-bottom-style: solid; 
+	border-top: none; 
+}
+
+.stepper-btn-dwn:before { 
+	margin-top: 10px; 
+	border-top-style: solid; 
+	border-bottom: none; 
+}

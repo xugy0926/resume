@@ -1,0 +1,679 @@
+/*
+========================================================= 
+jQUERY STEPS PLUGIN
+http://www.jquery-steps.com/
+========================================================= 
+*/
+.wizard,
+.tabcontrol{
+	display: block;
+	overflow:hidden;
+	width: 100%;
+}
+
+.wizard:after,
+.wizard:before,
+.tabcontrol:after, 
+.tabcontrol:before,
+.wizard > .steps:after,
+.wizard > .steps:before,
+.wizard > .content:after,
+.wizard > .content:before{ 
+	display: table; 
+	content: ""; 
+	line-height: 0; 
+}
+
+.wizard:after, 
+.tabcontrol:after,
+.wizard > .steps:after,
+.wizard > .content:after{ clear: both; }
+
+.wizard a,
+.tabcontrol a{
+	outline: 0;
+}
+
+.wizard ul,
+.tabcontrol ul{
+	list-style: none !important;
+	padding: 0;
+	margin: 0;
+}
+
+.wizard ul > li,
+.tabcontrol ul > li{
+	display: block;
+	padding: 0;
+}
+
+.wizard > .steps .current-info,
+.tabcontrol > .steps .current-info{
+    position: absolute;
+    left: -999em;
+}
+
+.wizard > .content > .title,
+.tabcontrol > .content > .title{
+    position: absolute;
+    left: -999em;
+}
+
+.wizard > .steps{
+	position: relative;
+	overflow:hidden;
+	display: block;
+	width: 100%;
+}
+
+.wizard.vertical > .steps{
+    display: inline;
+    float: left;
+    width: 30%;
+}
+
+.wizard > .steps .number{ font-size: 1.429em; }
+.wizard > .steps > ul > li{ width: 25%; }
+.wizard > .steps > ul > li,
+.wizard > .actions > ul > li { float: left; }
+.wizard.vertical > .steps > ul > li {
+    float: none;
+    width: 100%;
+}
+
+.wizard > .steps a,
+.wizard > .steps a:hover,
+.wizard > .steps a:active{
+    display: block;
+    width: auto;
+    margin: 0 0.5em 0.5em;
+    padding: 1em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.wizard > .steps .disabled a,
+.wizard > .steps .disabled a:hover,
+.wizard > .steps .disabled a:active{
+    background:#ECEDEE;
+	cursor: default;
+    color: #aaa;
+}
+
+.wizard > .steps .current a,
+.wizard > .steps .current a:hover,
+.wizard > .steps .current a:active{
+    background: #2184be;
+    cursor: default;
+	color: #fff;
+}
+
+.wizard > .steps .done a,
+.wizard > .steps .done a:hover,
+.wizard > .steps .done a:active{
+    background: #9dc8e2;
+    color: #fff;
+}
+
+.wizard > .steps .error a,
+.wizard > .steps .error a:hover,
+.wizard > .steps .error a:active{
+    background: #ff3111;
+    color: #fff;
+}
+
+.wizard > .content{
+    display: block;
+    margin:0;
+    min-height:7em;
+    position: relative;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+	overflow: hidden;
+	width: auto;
+}
+
+.wizard.vertical > .content{
+    float: left;
+    margin: 0 2.5% 0.5em 2.5%;
+	display: inline;
+    width: 65%;
+}
+
+.wizard > .content > .body{
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding:10px 8px;
+	padding-right:10px;
+}
+
+.wizard > .content > .body ul{ list-style: disc !important; }
+.wizard > .content > .body ul > li { display: list-item; }
+.wizard > .content > .body > iframe{
+    border: 0 none;
+    width: 100%;
+    height: 100%;
+}
+
+.wizard > .actions{
+	position: relative;
+	display: block;
+	text-align: right;
+	width: 100%;
+}
+
+.wizard.vertical > .actions{
+    display: inline;
+    float: right;
+    margin: 0 2.5%;
+    width: 95%;
+}
+
+.wizard > .actions > ul{
+    display: inline-block;
+    text-align: right;
+}
+
+.wizard > .actions > ul > li{ margin: 0 0.5em; }
+.wizard.vertical > .actions > ul > li{ margin: 0 0 0 1em; }
+.wizard > .actions a,
+.wizard > .actions a:hover,
+.wizard > .actions a:active{
+    background: #2184be;
+    color: #fff;
+    display: block;
+    padding: 1em 1em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.wizard > .actions .disabled a,
+.wizard > .actions .disabled a:hover,
+.wizard > .actions .disabled a:active{
+    background: #fff;
+	cursor: default;
+    color: #fff;
+}
+
+
+/* Hide back button on step 1 */
+.wizard > .actions > ul > li.disabled { display: none; }
+.wizard > .loading{}
+.wizard > .loading .spinner{}
+.tabcontrol > .steps{
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.tabcontrol > .steps > ul{
+	position: relative;
+	margin: 6px 0 0 0;
+	z-index: 1;
+	top: 1px;
+}
+
+.tabcontrol > .steps > ul > li{
+    float: left;
+	padding: 1px;
+    margin: 5px 2px 0 0;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.tabcontrol > .steps > ul > li:hover{
+    background: #edecec;
+    border: 1px solid #bbb;
+    padding: 0;
+}
+
+.tabcontrol > .steps > ul > li.current{
+    background: #fff;
+    border: 1px solid #bbb;
+    border-bottom: 0 none;
+    padding: 0 0 1px 0;
+    margin-top: 0;
+}
+
+.tabcontrol > .steps > ul > li > a{
+	color: #5f5f5f;
+	padding: 10px 30px;
+	display: inline-block;
+	text-decoration: none; 
+	border: 0 none;
+	margin: 0;
+}
+
+.tabcontrol > .steps > ul > li > a:hover{ text-decoration: none; }
+.tabcontrol > .steps > ul > li.current > a{ padding: 15px 30px 10px 30px; }
+.tabcontrol > .content{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 35em;
+    overflow: hidden;
+    border-top: 1px solid #bbb;
+    padding-top: 20px;
+}
+
+.tabcontrol > .content > .body{
+    float: left;
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    padding: 2.5%;
+}
+
+.tabcontrol > .content > .body ul{ list-style: disc !important; }
+.tabcontrol > .content > .body ul > li{ display: list-item; }
+
+.wizard fieldset,
+.tabcontrol fieldset{ 
+	border:0;
+	position: relative;
+	display:block;
+	z-index:1;
+}
+
+
+/* Customized for smartforms v.3
+ * Add .smart-steps class to .form-body
+-------------------------------------------------------------- */
+.smart-steps .wizard > .content > .body{     
+	padding:0;
+	padding-right:4px; 
+}
+.smart-steps .wizard fieldset,
+.smart-steps .tabcontrol fieldset{ 
+	border:0;
+	position:relative;
+	z-index:1;
+	display:block;
+}
+
+.smart-steps .wizard > .steps{ position:relative; }
+.smart-steps .wizard > .steps a,
+.smart-steps .wizard > .steps a:hover,
+.smart-steps .wizard > .steps a:active{
+	margin: 0;
+	margin: 0 0 0.8em;
+	text-align:center;
+}
+
+.smart-steps .wizard > .steps a,
+.smart-steps .wizard > .steps a:hover,
+.smart-steps .wizard > .steps a:active{ 
+	height:54px; 
+	line-height:54px; 
+	padding:0 1em; 
+	padding-left:2em;  
+}
+
+.smart-steps .wizard > .steps a{
+    position: relative;
+	font-family: 'Open Sans', sans-serif;
+	font-size:16px;
+}
+
+.smart-steps .wizard > .steps a:before {
+    content:'';
+    width: 40px;
+    height: 40px;
+	position: absolute;
+    right: -16px;
+    -webkit-border-radius: 5px 2px 5px 0;
+	-moz-border-radius: 5px 2px 5px 0;
+	-o-border-radius: 5px 2px 5px 0;
+	border-radius: 5px 2px 5px 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);	
+    background-color: inherit;
+	border-color: inherit;	
+    border: none;
+	top: 7px;
+	z-index:1;
+}
+
+.smart-steps .wizard > .steps a:after {
+	content: "";  
+	border-top: 28px solid transparent;
+	border-bottom: 28px solid transparent;
+	border-left: 28px solid #fff;
+	position: absolute; 
+	left: 0; 
+	top: -1px;
+}
+
+.smart-steps .wizard > .steps li:first-child a:after,
+.smart-steps .wizard > .steps li:last-child a:before { display: none;  }
+
+/* vertical steps  
+-------------------------------------------------------------------- */
+.smart-steps .wizard.vertical > .steps li:last-child a:before { display:block; }
+.smart-steps .wizard.vertical > .steps a:after,
+.smart-steps .wizard.vertical > .steps a:before,
+.smart-steps .wizard.vertical > .steps li:last-child a:before{ display:none; }
+.smart-steps .wizard.vertical > .steps .current a:before,
+.smart-steps .wizard.vertical > .steps .current:last-child a:before { display:block;  }
+.smart-steps .wizard.vertical > .steps a,
+.smart-steps .wizard.vertical > .steps a:hover,
+.smart-steps .wizard.vertical > .steps a:active{ padding-left:1em; }
+.smart-steps .wizard.vertical > .content{ padding-left:20px; }
+.smart-steps .wizard.vertical > .content{
+    margin: 0;
+	padding:0 2px 20px 30px;
+    width: 70%;
+}
+
+/* custom styling 
+-------------------------------------------------------------------- */
+.smart-steps form{  padding-bottom:10px; }
+.smart-steps .wizard > .steps{ position:relative; z-index:99; }
+.smart-steps .xsteps{ position:relative; z-index:2;  }
+.smart-steps .wizard > .steps .number{ display:none; }
+.smart-container .step-group{ padding-right:5px; }
+.server-response{ margin-bottom:10px; }
+.smart-steps .wizard.vertical > .content .step-group{ padding-right:0; }
+.smart-container{ 
+	position:relative;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	-o-border-radius:0;
+	border-radius:0;	   
+}
+
+.steps-progress .wizard > .steps{ overflow:visible; padding-bottom:20px; }
+.steps-progress .wizard > .steps li:before{
+	content:''; 
+	display: inline-block; 
+	position:absolute; 
+	height:5px;
+	width:100%;
+	bottom:14px;
+}
+
+.steps-progress .wizard > .steps .disabled:before{ background:#ECEDEE; }
+.steps-progress .wizard > .steps .current:before { background: #2184be; }
+.steps-progress .wizard > .steps .done:before{ background: #9dc8e2; }
+.steps-progress .wizard > .steps .error:before{ background: #ff3111; }
+.steps-progress .wizard > .steps .number{ 
+	font-size:11px;
+	display: block;
+	position:absolute;
+	line-height:22px;
+	font-weight:bold;
+	-webkit-border-radius:22px;
+	-moz-border-radius:22px;
+	border-radius:22px;
+	height:24px;
+	width:24px;
+	top:57px;
+	left:25%;
+}
+
+.steps-progress .wizard > .steps .disabled .number{background:#ECEDEE;}
+.steps-progress .wizard > .steps .current .number{background:#2184be;}
+.steps-progress .wizard > .steps .done .number{background:#9dc8e2;}
+.steps-progress .wizard > .steps .error .number{background:#ff3111;}
+.smartform-box{ background:#ECEDEE; }
+
+
+/* Number of steps 
+------------------------------------------------------ */
+.stp-six .wizard > .steps > ul > li{ width: 16.66%; }
+.stp-five .wizard > .steps > ul > li{ width: 20%; }
+.stp-four .wizard > .steps > ul > li{ width: 25%; }
+.stp-three .wizard > .steps > ul > li{ width: 33.33%; }
+.stp-two .wizard > .steps > ul > li{ width: 50%; }
+
+/* @Steps theme colors 
+------------------------------------------------------ */
+
+/* @primary steps theme 
+------------------------------------------------------ */
+.steps-theme-primary .wizard > .actions a,
+.steps-theme-primary .wizard > .actions a:hover,
+.steps-theme-primary .wizard > .actions a:active,
+.steps-theme-primary .wizard > .steps .current a,
+.steps-theme-primary .wizard > .steps .current a:hover,
+.steps-theme-primary .wizard > .steps .current a:active,
+.steps-theme-primary .wizard > .steps .current:before,
+.steps-theme-primary .wizard > .steps .current .number{
+    background: #1abc9c;
+	color: #fff;
+}
+
+.steps-theme-primary .wizard > .steps .done a,
+.steps-theme-primary .wizard > .steps .done a:hover,
+.steps-theme-primary .wizard > .steps .done a:active,
+.steps-theme-primary .wizard > .steps .done:before,
+.steps-theme-primary .wizard > .steps .done .number{
+    background: #48c9b0;
+    color: #fff;
+}
+
+/* @primary steps black
+------------------------------------------------------ */
+.steps-theme-black .wizard > .actions a,
+.steps-theme-black .wizard > .actions a:hover,
+.steps-theme-black .wizard > .actions a:active,
+.steps-theme-black .wizard > .steps .current a,
+.steps-theme-black .wizard > .steps .current a:hover,
+.steps-theme-black .wizard > .steps .current a:active,
+.steps-theme-black .wizard > .steps .current:before,
+.steps-theme-black .wizard > .steps .current .number{
+    background: #34495e;
+	color: #fff;
+}
+
+.steps-theme-black .wizard > .steps .done a,
+.steps-theme-black .wizard > .steps .done a:hover,
+.steps-theme-black .wizard > .steps .done a:active,
+.steps-theme-black .wizard > .steps .done:before,
+.steps-theme-black .wizard > .steps .done .number{
+    background: #415b76;
+    color: #fff;
+}
+
+/* @primary steps blue
+------------------------------------------------------ */
+.steps-theme-blue .wizard > .actions a,
+.steps-theme-blue .wizard > .actions a:hover,
+.steps-theme-blue .wizard > .actions a:active,
+.steps-theme-blue .wizard > .steps .current a,
+.steps-theme-blue .wizard > .steps .current a:hover,
+.steps-theme-blue .wizard > .steps .current a:active,
+.steps-theme-blue .wizard > .steps .current:before,
+.steps-theme-blue .wizard > .steps .current .number{
+    background: #3498db;
+	color: #fff;
+}
+
+.steps-theme-blue .wizard > .steps .done a,
+.steps-theme-blue .wizard > .steps .done a:hover,
+.steps-theme-blue .wizard > .steps .done a:active,
+.steps-theme-blue .wizard > .steps .done:before,
+.steps-theme-blue .wizard > .steps .done .number{
+    background: #5dade2;
+    color: #fff;
+}
+
+/* @primary steps green
+------------------------------------------------------ */
+.steps-theme-green .wizard > .actions a,
+.steps-theme-green .wizard > .actions a:hover,
+.steps-theme-green .wizard > .actions a:active,
+.steps-theme-green .wizard > .steps .current a,
+.steps-theme-green .wizard > .steps .current a:hover,
+.steps-theme-green .wizard > .steps .current a:active,
+.steps-theme-green .wizard > .steps .current:before,
+.steps-theme-green .wizard > .steps .current .number{
+    background: #2ecc71;
+	color: #fff;
+}
+
+.steps-theme-green .wizard > .steps .done a,
+.steps-theme-green .wizard > .steps .done a:hover,
+.steps-theme-green .wizard > .steps .done a:active,
+.steps-theme-green .wizard > .steps .done:before,
+.steps-theme-green .wizard > .steps .done .number{
+    background: #58d68d;
+    color: #fff;
+}
+
+/* @primary steps purple
+------------------------------------------------------ */
+.steps-theme-purple .wizard > .actions a,
+.steps-theme-purple .wizard > .actions a:hover,
+.steps-theme-purple .wizard > .actions a:active,
+.steps-theme-purple .wizard > .steps .current a,
+.steps-theme-purple .wizard > .steps .current a:hover,
+.steps-theme-purple .wizard > .steps .current a:active,
+.steps-theme-purple .wizard > .steps .current:before,
+.steps-theme-purple .wizard > .steps .current .number{
+    background: #9B59B6;
+	color: #fff;
+}
+
+.steps-theme-purple .wizard > .steps .done a,
+.steps-theme-purple .wizard > .steps .done a:hover,
+.steps-theme-purple .wizard > .steps .done a:active,
+.steps-theme-purple .wizard > .steps .done:before,
+.steps-theme-purple .wizard > .steps .done .number{
+    background: #a66bbe;
+    color: #fff;
+}
+
+/* @primary steps red
+------------------------------------------------------ */
+.steps-theme-red .wizard > .actions a,
+.steps-theme-red .wizard > .actions a:hover,
+.steps-theme-red .wizard > .actions a:active,
+.steps-theme-red .wizard > .steps .current a,
+.steps-theme-red .wizard > .steps .current a:hover,
+.steps-theme-red .wizard > .steps .current a:active,
+.steps-theme-red .wizard > .steps .current:before,
+.steps-theme-red .wizard > .steps .current .number{
+    background: #e74c3c;
+	color: #fff;
+}
+
+.steps-theme-red .wizard > .steps .done a,
+.steps-theme-red .wizard > .steps .done a:hover,
+.steps-theme-red .wizard > .steps .done a:active,
+.steps-theme-red .wizard > .steps .done:before,
+.steps-theme-red .wizard > .steps .done .number{
+    background: #ec7063;
+    color: #fff;
+}
+
+/* @primary steps yellow
+------------------------------------------------------ */
+.steps-theme-yellow .wizard > .actions a,
+.steps-theme-yellow .wizard > .actions a:hover,
+.steps-theme-yellow .wizard > .actions a:active,
+.steps-theme-yellow .wizard > .steps .current a,
+.steps-theme-yellow .wizard > .steps .current a:hover,
+.steps-theme-yellow .wizard > .steps .current a:active,
+.steps-theme-yellow .wizard > .steps .current:before,
+.steps-theme-yellow .wizard > .steps .current .number{
+    background: #ed9c28;
+	color: #fff;
+}
+
+.steps-theme-yellow .wizard > .steps .done a,
+.steps-theme-yellow .wizard > .steps .done a:hover,
+.steps-theme-yellow .wizard > .steps .done a:active,
+.steps-theme-yellow .wizard > .steps .done:before,
+.steps-theme-yellow .wizard > .steps .done .number{
+    background:#f0ad4e;
+    color: #fff;
+}
+
+/* @All themes error step 
+---------------------------------------------------- */
+.steps-theme-red .wizard > .steps .error a,
+.steps-theme-red .wizard > .steps .error a:hover,
+.steps-theme-red .wizard > .steps .error a:active,
+.steps-theme-red .wizard > .steps .error:before,
+.steps-theme-red .wizard > .steps .error .number,
+.steps-theme-blue .wizard > .steps .error a,
+.steps-theme-blue .wizard > .steps .error a:hover,
+.steps-theme-blue .wizard > .steps .error a:active,
+.steps-theme-blue .wizard > .steps .error:before,
+.steps-theme-blue .wizard > .steps .error .number,
+.steps-theme-green .wizard > .steps .error a,
+.steps-theme-green .wizard > .steps .error a:hover,
+.steps-theme-green .wizard > .steps .error a:active,
+.steps-theme-green .wizard > .steps .error:before,
+.steps-theme-green .wizard > .steps .error .number,
+.steps-theme-black .wizard > .steps .error a,
+.steps-theme-black .wizard > .steps .error a:hover,
+.steps-theme-black .wizard > .steps .error a:active,
+.steps-theme-black .wizard > .steps .error:before,
+.steps-theme-black .wizard > .steps .error .number,
+.steps-theme-purple .wizard > .steps .error a,
+.steps-theme-purple .wizard > .steps .error a:hover,
+.steps-theme-purple .wizard > .steps .error a:active,
+.steps-theme-purple .wizard > .steps .error:before,
+.steps-theme-purple .wizard > .steps .error .number,
+.steps-theme-yellow .wizard > .steps .error a,
+.steps-theme-yellow .wizard > .steps .error a:hover,
+.steps-theme-yellow .wizard > .steps .error a:active,
+.steps-theme-yellow .wizard > .steps .error:before,
+.steps-theme-yellow .wizard > .steps .error .number,
+.steps-theme-primary .wizard > .steps .error a,
+.steps-theme-primary .wizard > .steps .error a:hover,
+.steps-theme-primary .wizard > .steps .error a:active,
+.steps-theme-primary .wizard > .steps .error:before,
+.steps-theme-primary .wizard > .steps .error .number{
+    background: #ff3111;
+    color: #fff;
+}
+
+@media (max-width: 800px) {
+	.wizard > .steps > ul > li{ width: 100%;}
+	.smart-steps .wizard > .steps > ul > li{ width: 100%;}
+	.smart-steps .wizard > .steps a:after,
+	.smart-steps .wizard > .steps a:before { display:none!important;  }	
+	.smart-steps .wizard.vertical > .steps{
+		display: block;
+		float: none;
+		width: 100%;
+	}
+	
+	.smart-steps .wizard.vertical > .content{
+		display: block;
+		float: none;
+		width:100%;
+		padding:0;
+		margin:0;
+		padding-right:5px;
+	}
+	
+	.steps-progress .wizard > .steps{ overflow:visible; padding-bottom:10px; }
+	.steps-progress .wizard > .steps .number,
+	.steps-progress .wizard > .steps li:before{ display:none;}	
+	
+}
+
+@media (max-width: 400px) {
+	.smart-steps .wizard > .actions a,
+	.smart-steps .wizard > .actions li,
+	.smart-steps .wizard > .actions > ul{ display:block; }
+	.smart-steps .wizard > .actions a{ margin-bottom:5px; }
+}

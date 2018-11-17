@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* 
+------------------------------------------------------------
+@import third party plugins customization for smart-forms 
+------------------------------------------------------------ */
+
+/* PLUGIN STYLES */
+@import url(smart-addons/jquery.stepper.css);
+@import url(smart-addons/spectrum.css);
+@import url(smart-addons/jquery-ui-slider-pips.css);
+@import url(smart-addons/smartforms-modal.css);
+@import url(smart-addons/jquery.steps.css);
+@import url(smart-addons/hideShowPassword.css);
+@import url(smart-addons/select2.css);
+@import url(smart-addons/dropzone.css);
+@import url(smart-addons/intlTelInput.css);
+
+/* OVERRIDES */
+@import url(smart-addons/smartforms-custom.css);
+
+
+
+
+
+
+
+
+
+

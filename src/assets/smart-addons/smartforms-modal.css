@@ -1,0 +1,148 @@
+/*
+========================================================= 
+SMART FORMS MODAL PLUGIN
+http://doptiq.com/smart-forms/
+========================================================= 
+*/
+.smartforms-px{ text-align:center; display:block; }
+.smartforms-modal-footer{ padding-bottom:15px;  }
+.smartforms-modal-scroll{ overflow:hidden; }
+.smartforms-modal-trigger {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  margin: 3em auto;
+  text-align: center;
+  color: #FFF;
+  font-size: 16px;
+  ffont-weight:300;
+  text-transform: uppercase;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  background: #1ABC9C;
+  font-family:  "Roboto", Arial, Helvetica, sans-serif;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
+  text-decoration:none;
+  padding:0 30px;
+}
+
+.smartforms-modal-header{
+	position:relative;
+	padding:15px 20px;
+	background-color:#1ABC9C;
+	color:#fff;
+}
+
+.smartforms-modal-header h3{
+	margin:0; 
+	font-family:  "Roboto", Arial, Helvetica, sans-serif;
+	font-size:28px;
+	font-weight:300;
+}
+
+.smartforms-modal-body{ display:block; }
+.smartforms-modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.8);
+	opacity: 0;
+	filter: alpha(opacity=0);
+	visibility: hidden;
+	-webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	-moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	transition: opacity 0.3s 0s, visibility 0s 0.3s;
+	overflow-y: scroll;	
+}
+
+.smartforms-modal.smartforms-modal-visible {
+	opacity: 1;
+	filter: alpha(opacity=80);
+	visibility: visible;
+	-webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+	-moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+	transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+
+.smartforms-modal-container {
+	position: relative;
+	width: 90%;
+	max-width: 600px;
+	margin: 4em auto;
+	background: #FFF;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	-webkit-transform: translateY(-40px);
+	-moz-transform: translateY(-40px);
+	-ms-transform: translateY(-40px);
+	-o-transform: translateY(-40px);
+	transform: translateY(-40px);
+	-webkit-backface-visibility: hidden;
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+.smartforms-modal-container .smartforms-modal-close {
+	position: absolute;
+  	top:0;
+	right:0;
+	width: 60px;
+	height: 100%;
+	line-height: 60px;
+	background:#1ABC9C;
+	opacity: 1;
+	filter: alpha(opacity=100);	
+	font-family: Arial, Baskerville, monospace;    
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+  	text-decoration: none;
+  	text-align: center;	
+  	font-style: normal;
+  	font-size: 28px;
+	color: #fff;
+	z-index:10;	
+}
+.smartforms-modal-container .smartforms-modal-close:hover{
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+}
+.smartforms-modal-visible .smartforms-modal-container {
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.smartforms-modal-container .wrap-full{ width:100%; }
+.smartforms-modal-container .smart-wrap{ padding:0; }
+.smartforms-modal-container .smart-container{
+	margin:0 auto;
+	position:relative;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	-o-box-shadow:none;
+	box-shadow:none;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	-o-border-radius:0;
+	border-radius:0;
+	 
+}
+
+@media only screen and (min-width: 1170px) {
+	.smartforms-modal-container {
+		margin: 5em auto;
+	}
+}
