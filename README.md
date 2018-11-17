@@ -1,5 +1,7 @@
 # resume
 
+[homepage](https://xugy0926.github.io/resume)
+
 The resume template project.
 
 ## Project setup

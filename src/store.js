@@ -5,11 +5,11 @@ export function createStore() {
     state: {
       template: 'github-markdown',
       resume: {
-        name: 'xugaoyang',
+        name: '',
         dayOfBirth: '',
         monthOfBirth: '',
-        yearOfBirth: '1990',
-        gender: 'Male',
+        yearOfBirth: '',
+        gender: '',
         email: '',
         phone: '',
         github: '',
