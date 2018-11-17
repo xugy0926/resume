@@ -20,12 +20,6 @@
 
 pdf 可以保证你的简历格式不会乱。
 
-#### 内容排版
-
-在写简历时，要注意每一个空格和标点符号的准确性。你要相信挑人的人总喜欢吹毛求疵。
-
-那么，你可以参考 [chinese-copywriting-guidelines](https://github.com/sparanoid/chinese-copywriting-guidelines) 来学习怎么修正内容上的细节错误。
-
 #### 内容不能少
 
 - 个人基本信息（必须）
@@ -57,6 +51,12 @@ pdf 可以保证你的简历格式不会乱。
 3. 开发直播系统，上线 10个 月 0 宕机。
 
 在用数字表达内容的时候，尽量用阿拉伯数字而非中文。因为人都对阿拉伯数字敏感。
+
+#### 内容排版
+
+在写简历时，要注意每一个空格和标点符号的准确性。你要相信挑人的人总喜欢吹毛求疵。
+
+那么，你可以参考 [chinese-copywriting-guidelines](https://github.com/sparanoid/chinese-copywriting-guidelines) 来学习怎么修正内容上的细节错误。
 
 # 常见问题
 
