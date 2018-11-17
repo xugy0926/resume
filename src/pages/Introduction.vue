@@ -2,7 +2,7 @@
 <Layout>
   <Header :theme="theme" text="自我介绍" />
   <Body :theme="theme">
-    <Textarea :value.sync="introduction" placeholder="Text area" hint="" />
+    <Textarea :value.sync="introduction" placeholder="200-300 字" hint="" />
   </Body>
   <Footer>
     <button class="button btn-primary" v-bind:class="`btn-${theme}`" @click="last">上一步</button>

@@ -10,6 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "html2pdf.js": "^0.9.1",
     "marked": "^0.5.1",
     "ramda": "^0.25.0",
     "vue": "^2.5.17",

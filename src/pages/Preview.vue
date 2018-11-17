@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="smart-forms smart-container wrap-1">
     <Body :theme="theme">
       <div class="section">
@@ -13,8 +14,10 @@
           </div>
         </div>
       </div>
+      <button class="button btn-primary" @click=toPDF>生成 PDF</button>
     </Body>
-
+  </div>
+  <div id="resume" class="smart-forms smart-container wrap-1">
     <div class="form-body" v-bind:class="useTemplate">
       <h1 v-if="resume.name">{{ resume.name }}</h1>
       <p><strong v-if="resume.gender">{{ resume.gender === 'Male' ? '男' : '女' }}</strong><span v-if="resume.yearOfBirth"> {{ resume.yearOfBirth }} 年 </span></p>
@@ -47,10 +50,12 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 
 <script>
 import marked from 'marked'
+import html2pdf from 'html2pdf.js'
 import Body from '../components/Body.vue'
 
 const templates = ['github-markdown']
@@ -80,6 +85,10 @@ export default {
   methods: {
     changeToMD(content) {
       return marked(content)
+    },
+    toPDF() {
+      var element = document.getElementById('resume');
+      html2pdf(element);
     },
     last() {
       this.$router.push({ path: '/' })
